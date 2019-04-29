@@ -105,6 +105,12 @@ class SearchParameters
      * @var int
      */
     public $filters_area_pixels;
+
+    /**
+     * Image sizes in mega pixels for returned assets in search.
+     * @var int
+     */
+    public $filters_area_m_pixels;
     
     /**
      * SimilarImage filter can be true or false to find
@@ -268,6 +274,7 @@ class SearchParameters
     protected $_json_mapper = [
         'filters_colors' => '[filters][colors]',
         'filters_area_pixels' => '[filters][area_pixels]',
+        'filters_area_m_pixels' => '[filters][area_m_pixels]',
         'filters_content_type_photos' => '[filters][content_type:photo]',
         'filters_content_type_illustration' => '[filters][content_type:illustration]',
         'filters_content_type_vector' => '[filters][content_type:vector]',
@@ -614,6 +621,7 @@ class SearchParameters
      * Sets image sizes in pixels for returned assets in search parameters.
      * @param int $filters_area_pixels Image Size in pixels
      * @return SearchParameters object
+     * @deprecated use setFilterAreaMPixels instead
      * @throws StockApiException if filterAreaPixels is not positive
      */
     public function setFilterAreaPixels(int $filters_area_pixels) : SearchParameters
@@ -625,7 +633,38 @@ class SearchParameters
         $this->filters_area_pixels = $filters_area_pixels;
         return $this;
     }
-    
+
+    /**
+     * @param int|null $from Image size in Mpixels
+     * @param int|null $to Image size in Mpixels
+     * @return SearchParameters
+     * @throws StockApiException
+     */
+    public function setFilterAreaMPixels(int $from = null, int $to = null) : SearchParameters
+    {
+
+        if ($from < 0) {
+            throw StockApiException::WithMessage('FilterAreaMPixels $from should be greater than zero');
+        }
+
+        if ($to < 0) {
+            throw StockApiException::WithMessage('FilterAreaMPixels $to should be greater than zero');
+        }
+
+        if($from > $to){
+            throw StockApiException::WithMessage('FilterAreaMPixels $to should be greater than $from');
+        }
+
+
+
+        $this->filters_area_m_pixels = $from.'-'.$to;
+        return $this;
+    }
+
+    public function getFilterAreaMPixels(): ?string
+    {
+        return $this->filters_area_m_pixels;
+    }
     /**
      * Get whether you want to visual serach images or not.
      * @return bool|null whether SimilarImage filter is on or off

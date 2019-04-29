@@ -404,4 +404,10 @@ class SearchParametersTest extends TestCase
         $this->search_params->setSimilarImage(false);
         $this->assertEquals(false, $this->search_params->getSimilarImage());
     }
+
+    public function testFilterAreaMpixels(){
+
+        $this->search_params->setFilterAreaMPixels(0,200);
+        $this->assertEquals('0-200', $this->search_params->getFilterAreaMPixels());
+    }
 }
