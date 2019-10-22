@@ -19,87 +19,87 @@ class SearchParameters
      * @var int
      */
     const MAX_LIMIT = 64;
-    
+
     /**
      * Minimum number of assets that can be returned
      * in search results.
      * @var int
      */
     const MIN_LIMIT = 1;
-    
+
     /**
      * Specific asset creator's ID.
      * @var int
      */
     public $creator_id;
-    
+
     /**
      * Unique identifier of a specific asset.
      * @var int
      */
     public $media_id;
-    
+
     /**
      * Specific person id.
      * @var int
      */
     public $model_id;
-    
+
     /**
      * Asset's series Id.
      * @var int
      */
     public $serie_id;
-    
+
     /**
      * Similar media id for specific search.
      * @var int
      */
     public $similar;
-    
+
     /**
      * Specific category id to search assests.
      * @var int
      */
     public $category;
-    
+
     /**
      * Maximum number of assets in result.
      * @var int
      */
     public $limit;
-    
+
     /**
      * Start position(index) in search results.
      * @var int
      */
     public $offset;
-    
+
     /**
      * Keywords that you want to include in your files search.
      * @var string
      */
     public $words;
-    
+
     /**
      * URL for searching assests that are similar in appearance
      * to an image at a specific URL.
      * @var string
      */
     public $similar_url;
-    
+
     /**
      * Search assets that contain the specific colors.
      * @var string
      */
     public $filters_colors;
-    
+
     /**
      * Gallery Id filter for search params.
      * @var string
      */
     public $gallery_id;
-    
+
     /**
      * Image sizes in pixels for returned assets in search.
      * @var int
@@ -111,77 +111,77 @@ class SearchParameters
      * @var int
      */
     public $filters_area_m_pixels;
-    
+
     /**
      * SimilarImage filter can be true or false to find
      * visualy similar images.
      * @var int
      */
     public $similar_image;
-    
+
     /**
      * ContentTypePhoto filter can be true or false
      * to find assets that are photos.
      * @var int
      */
     public $filters_content_type_photos;
-    
+
     /**
      * ContentTypeIllustration filter can be true or false
      * to find assets that are illustrations.
      * @var int
      */
     public $filters_content_type_illustration;
-    
+
     /**
      * ContentTypeVector filter can be true or false
      * to find assets that are vectors.
      * @var int
      */
     public $filters_content_type_vector;
-    
+
     /**
      * ContentTypeVideo filter can be true or false
      * to find assets that are videos.
      * @var int
      */
     public $filters_content_type_video;
-    
+
     /**
      * ContentTypeTemplate filter can be true or false
      * to find assets that are templates.
      * @var int
      */
     public $filters_content_type_template;
-    
+
     /**
      * ContentType3D filter can be true or false
      * to find assets that are 3D.
      * @var int
      */
     public $filters_content_type_3d;
-    
+
     /**
      * ContentTypeAll filter can be true or false
      * to find assets that are of all types.
      * @var int
      */
     public $filters_content_type_all;
-    
+
     /**
      * Editorial filter can be true or false
      * to find assets that are of editorial.
      * @var int
      */
     public $filters_editorial;
-    
+
     /**
      * Offensive2 filter can be true or false to find assets only if they
      * are flagged as including Explicit/Nudity/Violence.
      * @var int
      */
     public $filters_offensive_2;
-    
+
     /**
      * IsolatedOn filter can be true or false to find assets only if the
      * subject is isolated from the background by being on a uniformly colored
@@ -189,35 +189,35 @@ class SearchParameters
      * @var int
      */
     public $filters_isolated_on;
-    
+
     /**
      * PanoromicOn filter can be true or false to find assets
      * that are panoromic.
      * @var int
      */
     public $filters_panoromic_on;
-    
+
     /**
      * Size of thumbnail(in pixels) for each found asset in search
      * results.
      * @var int
      */
     public $filters_thumbnail_size;
-    
+
     /**
      * Orientation filter in search Params for searching files of specific
      * orientation.
      * @var string
      */
     public $filters_orientation;
-    
+
     /**
      * Specified asset age groups that can be used in search parameters
      * for searching assets.
      * @var int
      */
     public $filters_age;
-    
+
     /**
      * Specified video duration that can be used in search parameters
      * for searching videos whose duration is no longer than the specified
@@ -225,48 +225,48 @@ class SearchParameters
      * @var string
      */
     public $filters_video_duration;
-    
+
     /**
      * specified template types that can be used in Search
      * Parameters for searching assets, if asset is a template.
      * @var array
      */
     public $filters_template_type_id = [];
-    
+
     /**
      * 3D types that can be used in search parameters for
      * searching assets.
      * @var array
      */
     public $filters_3d_type_id = [];
-    
+
     /**
      * Specified template category identifiers that can be used in Search
      * Parameters for searching assets, if asset is a template.
      * @var array
      */
     public $filters_template_category_id = [];
-    
+
     /**
      * Sort order in which to return found assets.
      * @var string
      */
     public $order;
-    
+
     /**
      * Asset's premium (pricing) level that can be used in function
      * for searching assets.
      * @var string
      */
     public $filters_premium;
-    
+
     /**
      * Asset's model or property releases that can be used in
      * search parameters for searching assets.
      * @var string
      */
     public $filters_has_releases;
-    
+
     /**
      * json mapper
      * @var array
@@ -294,9 +294,10 @@ class SearchParameters
         'filters_3d_type_id' => '[filters][3d_type_id][]',
         'filters_template_category_id' => '[filters][template_category_id][]',
         'filters_premium' => '[filters][premium]',
+        'filters_premium' => '[filters][premium]',
         'filters_has_releases' => '[filters][has_releases]',
     ];
-    
+
     /**
      * Get a specific asset creator's ID.
      * @return int|null creator Id of type function
@@ -305,7 +306,7 @@ class SearchParameters
     {
         return $this->creator_id;
     }
-    
+
     /**
      * Sets a specific asset creator's ID in search Params for searching files.
      * @param int $creator_id Specific asset creator's ID
@@ -314,15 +315,15 @@ class SearchParameters
      */
     public function setCreatorId(int $creator_id) : SearchParameters
     {
-        
+
         if ($creator_id <= 0) {
             throw StockApiException::withMessage('Should be a valid creator Id');
         }
-        
+
         $this->creator_id = $creator_id;
         return $this;
     }
-    
+
     /**
      * Get unique identifier of a specific asset (media Id).
      * @return int|null media id
@@ -331,7 +332,7 @@ class SearchParameters
     {
         return $this->media_id;
     }
-    
+
     /**
      * Sets unique identifier of a specific asset in search Params for searching
      * files.
@@ -341,15 +342,15 @@ class SearchParameters
      */
     public function setMediaId(int $media_id) : SearchParameters
     {
-        
+
         if ($media_id <= 0) {
             throw StockApiException::WithMessage('Should be a valid Media Id');
         }
-        
+
         $this->media_id = $media_id;
         return $this;
     }
-    
+
     /**
      * Get a specific person (model) using the model's ID.
      * @return int|null ModelId of type function
@@ -358,7 +359,7 @@ class SearchParameters
     {
         return $this->model_id;
     }
-    
+
     /**
      * Sets a specific person (model) Id in search Params for searching files.
      * @param int $model_id a specific person (model) Id
@@ -370,11 +371,11 @@ class SearchParameters
         if ($model_id <= 0) {
             throw StockApiException::WithMessage('Should be a valid Model Id');
         }
-        
+
         $this->model_id = $model_id;
         return $this;
     }
-    
+
     /**
      * Get current asset's series Id.
      * @return int|null SerieId of type function
@@ -383,7 +384,7 @@ class SearchParameters
     {
         return $this->serie_id;
     }
-    
+
     /**
      * Sets specific series for assets in search Params that you want to search.
      * @param int $serie_id Specific series Id of assests
@@ -395,11 +396,11 @@ class SearchParameters
         if ($serie_id <= 0) {
             throw StockApiException::WithMessage('Should be a valid Series Id');
         }
-        
+
         $this->serie_id = $serie_id;
         return $this;
     }
-    
+
     /**
      * Get a specific media ID for similar search.
      * @return int|null similar medi id
@@ -408,7 +409,7 @@ class SearchParameters
     {
         return $this->similar;
     }
-    
+
     /**
      * Sets specific media ID that is similar in appearance to an asset in
      * search Params for searching similar files.
@@ -421,11 +422,11 @@ class SearchParameters
         if ($similar <= 0) {
             throw StockApiException::WithMessage('Should be a valid previous mediaId');
         }
-        
+
         $this->similar = $similar;
         return $this;
     }
-    
+
     /**
      * Get a specific category ID.
      * @return int|null category id
@@ -434,7 +435,7 @@ class SearchParameters
     {
         return $this->category;
     }
-    
+
     /**
      * Sets a specific category ID in search Params for searching files of this
      * category.
@@ -447,11 +448,11 @@ class SearchParameters
         if ($category <= 0) {
             throw StockApiException::WithMessage('Should be a valid category');
         }
-        
+
         $this->category = $category;
         return $this;
     }
-    
+
     /**
      * Get maximum number of assets that return in the api call.
      * @return int|null|null limit of type function
@@ -460,7 +461,7 @@ class SearchParameters
     {
         return $this->limit;
     }
-    
+
     /**
      * Sets maximum number of assets in search Params that you wants to return
      * in the api call.
@@ -473,11 +474,11 @@ class SearchParameters
         if ($limit < static::MIN_LIMIT || $limit > static::MAX_LIMIT) {
             throw StockApiException::WithMessage('Limit should be greator than 1 and less than 64');
         }
-        
+
         $this->limit = $limit;
         return $this;
     }
-    
+
     /**
      * Get start position(index) in search results.
      * @return int|null|null offset of type function
@@ -486,7 +487,7 @@ class SearchParameters
     {
         return $this->offset;
     }
-    
+
     /**
      * Sets the start position(index) in search results.
      * @param int $offset starting index in the search results
@@ -498,11 +499,11 @@ class SearchParameters
         if ($offset < 0) {
             throw StockApiException::WithMessage('Offset should be between 0 and MaxResults');
         }
-        
+
         $this->offset = $offset;
         return $this;
     }
-    
+
     /**
      * Get keywords that you included in your specific files search.
      * @return string|null words of type String
@@ -511,7 +512,7 @@ class SearchParameters
     {
         return $this->words;
     }
-    
+
     /**
      * Sets keywords in search Params for searching files.
      * @param string $words keywords that you want to search
@@ -523,11 +524,11 @@ class SearchParameters
         if (empty($words)) {
             throw StockApiException::WithMessage('Should not be blank or null values in kewywords field');
         }
-        
+
         $this->words = $words;
         return $this;
     }
-    
+
     /**
      * Get URL that you have set for searching assests that are similar in
      * appearance to an image at a specific URL.
@@ -537,7 +538,7 @@ class SearchParameters
     {
         return $this->similar_url;
     }
-    
+
     /**
      * Sets a URL for searching assests that are similar in appearance to an
      * image at a specific URL.
@@ -550,11 +551,11 @@ class SearchParameters
         if (empty($similar_url)) {
             throw StockApiException::WithMessage('Should not be blank or null values in similarURL field');
         }
-        
+
         $this->similar_url = $similar_url;
         return $this;
     }
-    
+
     /**
      * Get color that you have included in search params to search assets that
      * contain the specified colors.
@@ -564,7 +565,7 @@ class SearchParameters
     {
         return $this->filters_colors;
     }
-    
+
     /**
      * Sets Color filter in search Params to search assets that contain the
      * specific colors.
@@ -577,11 +578,11 @@ class SearchParameters
         if (empty($filters_colors)) {
             throw StockApiException::WithMessage('Should not be blank or null values in filterColors field');
         }
-        
+
         $this->filters_colors = $filters_colors;
         return $this;
     }
-    
+
     /**
      * Get current galleryId filter.
      * @return string|null galleryId of type String
@@ -590,7 +591,7 @@ class SearchParameters
     {
         return $this->gallery_id;
     }
-    
+
     /**
      * Sets galleryId filter in search Params for searching files.
      * @param string $gallery_id specific gallery Id
@@ -602,11 +603,11 @@ class SearchParameters
         if (empty($gallery_id)) {
             throw StockApiException::WithMessage('Should not be blank or null values in galleryId field');
         }
-        
+
         $this->gallery_id = $gallery_id;
         return $this;
     }
-    
+
     /**
      * Get image sizes in pixels that you have set in search parameters for
      * returned assets.
@@ -616,7 +617,7 @@ class SearchParameters
     {
         return $this->filters_area_pixels;
     }
-    
+
     /**
      * Sets image sizes in pixels for returned assets in search parameters.
      * @param int $filters_area_pixels Image Size in pixels
@@ -629,7 +630,7 @@ class SearchParameters
         if ($filters_area_pixels < 0) {
             throw StockApiException::WithMessage('FilterAreaPixels should be greater than zero');
         }
-        
+
         $this->filters_area_pixels = $filters_area_pixels;
         return $this;
     }
@@ -673,7 +674,7 @@ class SearchParameters
     {
         return ($this->similar_image == 1) ? true : false;
     }
-    
+
     /**
      * Sets whether you want to visual serach images or not.
      * @param bool $similar_image True or False value
@@ -685,7 +686,7 @@ class SearchParameters
         $this->similar_image = ($similar_image == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether photos filter is on/off to find assets that are photos.
      * @return bool|null whether ContentTypeVector filter is on or off
@@ -694,7 +695,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_photos == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypephotos filter in search Params to find assets that are
      * photos.
@@ -715,7 +716,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_illustration == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeillustration filter in search Params to find assets that are
      * illustration.
@@ -728,7 +729,7 @@ class SearchParameters
         $this->filters_content_type_illustration = ($filters_content_type_illustration == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether Vector filter is on/off to find assets that are vectors.
      * @return bool|null whether ContentTypeVector filter is on or off
@@ -737,7 +738,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_vector == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeVector filter in search Params to find assets that are
      * vectors.
@@ -750,7 +751,7 @@ class SearchParameters
         $this->filters_content_type_vector = ($filters_content_type_vector == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether Videos filter is on/off to find assets that are videos.
      * @return bool|null whether ContentTypeVideo filter is on or off
@@ -759,7 +760,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_video == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeVideo filter in search Params to find assets that are
      * videos.
@@ -772,7 +773,7 @@ class SearchParameters
         $this->filters_content_type_video = ($filters_content_type_video == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether Template filter is on/off to find assets that are templates.
      * @return bool|null whether ContentTypeVideo filter is on or off
@@ -781,7 +782,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_template == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeTemplate filter in search Params to find assets that are
      * videos.
@@ -794,7 +795,7 @@ class SearchParameters
         $this->filters_content_type_template = ($filters_content_type_template == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether 3D filter is on/off to find assets that are templates.
      * @return bool|null whether ContentType3D filter is on or off
@@ -803,7 +804,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_3d == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentType3D filter in search Params to find assets that are
      * 3D.
@@ -816,7 +817,7 @@ class SearchParameters
         $this->filters_content_type_3d = ($filters_content_type_3d == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether ContentTypeAll filter is on/off to find assets that are templates.
      * @return bool|null whether ContentTypeAll filter is on or off
@@ -825,7 +826,7 @@ class SearchParameters
     {
         return ($this->filters_content_type_all == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeAll filter in search Params to find assets that are
      * of all types.
@@ -838,7 +839,7 @@ class SearchParameters
         $this->filters_content_type_all = ($filters_content_type_all == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether Editorial filter is on/off to find assets that are editorial.
      * @return bool|null whether Editorial filter is on or off
@@ -847,7 +848,7 @@ class SearchParameters
     {
         return ($this->filters_editorial == 1) ? true : false;
     }
-    
+
     /**
      * Sets ContentTypeTemplate filter in search Params to find assets that are
      * videos.
@@ -860,7 +861,7 @@ class SearchParameters
         $this->filters_editorial = ($filters_editorial == true ) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether Offensive2 filter is on or off to find assets only if they
      * are flagged as including Explicit/Nudity/Violence.
@@ -870,7 +871,7 @@ class SearchParameters
     {
         return ($this->filters_offensive_2 == 1) ? true : false;
     }
-    
+
     /**
      * Sets Offensive2 filter in search Params to find assets only if they are
      * flagged as including Explicit/Nudity/Violence.
@@ -883,7 +884,7 @@ class SearchParameters
         $this->filters_offensive_2 = ($filters_offensive_2 == true) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether IsolatedOn filter is on or off to find assets only if the
      * subject is isolated from the background by being on a uniformly colored
@@ -894,7 +895,7 @@ class SearchParameters
     {
         return ($this->filters_isolated_on == 1) ? true : false;
     }
-    
+
     /**
      * Sets IsolatedOn filter in search Params to find assets only if the
      * subject is isolated from the background by being on a uniformly colored
@@ -908,7 +909,7 @@ class SearchParameters
         $this->filters_isolated_on = ($filters_isolated_on == true) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get whether PanoromicOn filter is on or off to find assets that are panoromic.
      * background.
@@ -918,7 +919,7 @@ class SearchParameters
     {
         return ($this->filters_panoromic_on == 1) ? true : false;
     }
-    
+
     /**
      * Sets PanoromicOn filter in search Params to find assets that are Panoromic.
      * @param bool $filters_panoramic_on True or False value
@@ -930,7 +931,7 @@ class SearchParameters
         $this->filters_panoramic_on = ($filters_panoramic_on == true) ? 1 : 0;
         return $this;
     }
-    
+
     /**
      * Get the size of thumbnail(in pixels) for each found asset in search
      * results.
@@ -940,7 +941,7 @@ class SearchParameters
     {
         return $this->filters_thumbnail_size;
     }
-    
+
     /**
      * Sets the size of thumbnail(in pixels) for each found asset in search
      * results.
@@ -954,7 +955,7 @@ class SearchParameters
         $this->filters_thumbnail_size = $sizes[$filters_thumbnail_size];
         return $this;
     }
-    
+
     /**
      * Get the orientation of for each found asset in search results.
      * @return string|null
@@ -963,7 +964,7 @@ class SearchParameters
     {
         return $this->filters_orientation;
     }
-    
+
     /**
      * Sets the orientation for each found asset in search results.
      * @param string $filters_orientation
@@ -975,7 +976,7 @@ class SearchParameters
         $this->filters_orientation = $orientation[$filters_orientation];
         return $this;
     }
-    
+
     /**
      * Get age filter to find assets of the specified age.
      * @return string|null Age of type AssetAge enum
@@ -984,7 +985,7 @@ class SearchParameters
     {
         return $this->filters_age;
     }
-    
+
     /**
      * Sets Age filter in search Params to find assets of the specified age.
      * @param string $filters_age
@@ -996,7 +997,7 @@ class SearchParameters
         $this->filters_age = $age[$filters_age];
         return $this;
     }
-    
+
     /**
      * Get VideoDuration that you have set to find videos whose duration is no
      * longer than the specified duration in seconds.
@@ -1006,7 +1007,7 @@ class SearchParameters
     {
         return $this->filters_video_duration;
     }
-    
+
     /**
      * Sets VideoDuration to find videos whose duration is no longer than the
      * specified duration in seconds.
@@ -1019,7 +1020,7 @@ class SearchParameters
         $this->filters_video_duration = $duration[$filters_video_duration];
         return $this;
     }
-    
+
     /**
      * Get array specifying which template types to return in search results.
      * @return array TemplateTypes
@@ -1028,7 +1029,7 @@ class SearchParameters
     {
         return $this->filters_template_type_id;
     }
-    
+
     /**
      * Sets array specifying which template types to return in search results.
      * @param array $filters_template_type_id Array of AssetTemplatesType values
@@ -1040,11 +1041,11 @@ class SearchParameters
         if ($filters_template_type_id == null) {
             throw StockApiException::WithMessage('Template Types should not be null');
         }
-        
+
         $this->filters_template_type_id = $filters_template_type_id;
         return $this;
     }
-    
+
     /**
      * Get array specifying which 3D types to return in search results.
      * @return array
@@ -1053,7 +1054,7 @@ class SearchParameters
     {
         return $this->filters_content_type_3d;
     }
-    
+
     /**
      * Sets array specifying which 3D types to return in search results.
      * @param array $filters_content_type_3d
@@ -1065,11 +1066,11 @@ class SearchParameters
         if ($filters_content_type_3d == null) {
             throw StockApiException::WithMessage('3D Types should not be null');
         }
-        
+
         $this->filters_content_type_3d = $filters_content_type_3d;
         return $this;
     }
-    
+
     /**
      * Get array specifying which template categories to return.
      * @return array
@@ -1078,7 +1079,7 @@ class SearchParameters
     {
         return $this->filters_template_category_id;
     }
-    
+
     /**
      * Sets array specifying which template categories to return.
      * @param array $filters_template_category_id Array of AssetTemplateCategory values
@@ -1090,11 +1091,11 @@ class SearchParameters
         if ($filters_template_category_id == null) {
             throw StockApiException::WithMessage('TemplateCategory Ids should not be null');
         }
-        
+
         $this->filters_template_category_id = $filters_template_category_id;
         return $this;
     }
-    
+
     /**
      * Get sorting order in which it will return found assets.
      * @return string|null
@@ -1103,7 +1104,7 @@ class SearchParameters
     {
         return $this->order;
     }
-    
+
     /**
      * Sets sorting order in which it will return found assets.
      * @param string $order
@@ -1115,7 +1116,7 @@ class SearchParameters
         $this->order = $order_array[$order];
         return $this;
     }
-    
+
     /**
      * Get premium (pricing) level to find the assests.
      * @return string|null
@@ -1124,7 +1125,7 @@ class SearchParameters
     {
         return $this->filters_premium;
     }
-    
+
     /**
      * Sets premium (pricing) level to find the assests.
      * @param string $filters_premium
@@ -1136,7 +1137,7 @@ class SearchParameters
         $this->filters_premium = $premium[$filters_premium];
         return $this;
     }
-    
+
     /**
      * Get HasReleases filter that you have set to find assets which has model
      * or property releases.
@@ -1146,7 +1147,7 @@ class SearchParameters
     {
         return $this->filters_has_releases;
     }
-    
+
     /**
      * Sets HasReleases filter to find assets which has model or property
      * releases.
@@ -1159,7 +1160,7 @@ class SearchParameters
         $this->filters_has_releases = $has_releases[$filters_has_releases];
         return $this;
     }
-    
+
     /**
      * array to map variables in uri
      * @return array
